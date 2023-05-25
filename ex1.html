@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>média</title>
+    <style>
+        body {
+            background:rgb(12, 158, 158);
+            font:normal 15pt Times;
+        }
+        div#resu{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média de alunos</h1>
+    Nota 1 <input type="number" name="text1" id="text1">
+    Nota 2 <input type="number" name="text2" id="text2">
+    Nota 3 <input type="number" name="text3" id="text3">
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="resu">
+        Resultado
+    </div>
+    <script>
+        function calcular() {
+            var txt1 = window.document.getElementById('text1')
+            var txt2 = window.document.getElementById('text2')
+            var txt3 = window.document.getElementById('text3')
+            var resultado = window.document.getElementById('resu')
+            var nota1 = Number(txt1.value)
+            var nota2 = Number(txt2.value)
+            var nota3 = Number(txt3.value)
+            var media = (nota1 + nota2 + nota3) / 3
+            resultado.innerHTML = `<p>Sua média é <strong>${media}</strong></p>. `
+            if (media == 10) {
+                resultado.innerHTML += '<p>Aprovado com Distinção</p>'
+            } else if (media >= 7) {
+                resultado.innerHTML += `<p>Aprovado</p>`
+            } else {
+                resultado.innerHTML += '<p><strong>Reprovado</strong></p>'
+            }
+            var botão = window.document.getElementsByTagName('input')[3]
+            botão.style.background = "gray"
+        }
+    </script>
+</body>
+</html>
